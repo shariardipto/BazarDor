@@ -4,7 +4,7 @@
 
 ## 🌐 Live Website
 
-Live Link: Add after deployment
+Live Link: https://bazardorwebapp.netlify.app/
 
 ## 📂 GitHub Repository
 
