@@ -5,6 +5,8 @@ import ProductCard from "@/components/product/ProductCard";
 import { getProducts } from "@/lib/api";
 import { toBn } from "@/lib/utils";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const products = await getProducts();
 
@@ -35,7 +37,10 @@ export default async function Home() {
           type="down"
         />
 
-        <section id="সব-পণ্য" className="mt-12 scroll-mt-36">
+        <section
+          id="সব-পণ্য"
+          className="mt-12 scroll-mt-36"
+        >
           <div className="mb-5">
             <h2 className="text-2xl font-bold text-gray-900">
               সব পণ্য
