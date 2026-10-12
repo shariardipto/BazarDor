@@ -1,10 +1,29 @@
 import Link from "next/link";
+
 import Container from "@/components/ui/Container";
 import SignInForm from "@/components/auth/SignInForm";
+import ProtectedRouteToast from "@/components/auth/ProtectedRouteToast";
 
-export default function SignInPage() {
+interface SignInPageProps {
+  searchParams: Promise<{
+    reason?: string;
+  }>;
+}
+
+export default async function SignInPage({
+  searchParams,
+}: SignInPageProps) {
+  const params = await searchParams;
+
+  const isProtectedRedirect =
+    params.reason === "protected";
+
   return (
     <main>
+      {isProtectedRedirect && (
+        <ProtectedRouteToast />
+      )}
+
       <Container className="flex min-h-[600px] flex-col items-center justify-center py-12">
         <SignInForm />
 

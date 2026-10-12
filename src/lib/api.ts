@@ -39,6 +39,14 @@ export const getProductsByCategory = cache(async (category: string) => {
   );
 });
 
-export const getProduct = cache(async (id: string) => {
-  return getData<Product>(`/products/${id}`);
+export const getProductBySlug = cache(async (slug: string) => {
+  const products = await getProducts();
+
+  return (
+    products.find(
+      (product) =>
+        product.slug === slug ||
+        String(product.id) === slug
+    ) ?? null
+  );
 });
